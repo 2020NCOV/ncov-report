@@ -27,7 +27,7 @@ ___
 * 后台管理系统完整版（PHP版本） https://github.com/2020NCOV/ncov-report-manage-system-PHP
 * 后台管理系统前端代码（VUE框架） https://github.com/2020NCOV/ncov-report-manage-system-VUE
 * 后台管理系统前端代码（React框架）https://github.com/2020NCOV/ncov-report-manage-system-REACT
-* 后台管理系统前端代码（Angular框架）https://github.com/2020NCOV/ncov-report-manage-system-ANGULAR
+* 后台管理系统前端代码（Angular+DevUI）https://github.com/2020NCOV/ncov-report-manage-system-ANGULAR
 * 后台管理系统后端代码（JAVA版本）https://github.com/2020NCOV/ncov-report-manage-system-JAVA
 * 后台管理系统后端代码（Golang版本）https://github.com/2020NCOV/ncov-report-manage-system-GO
 
