@@ -42,6 +42,10 @@ ___
 * 预警信息
 ___
 
+## 小程序扫码体验
+
+<img src="http://ncov-sspku.mysspku.com/index/getwxcode/get_image" width="200px">
+
 ## 近期线上交流
 
 + 第一期：2020年02月28日 晚18:00-20:00   具体交流主题及参与方式另行通知，请随时关注本页面内容
