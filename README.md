@@ -22,7 +22,7 @@ ___
 目前支持以上任一方式使用，具体根据机构的实际情况选择。我们也会考虑更多的接入方式，欢迎在issues中提出
 
 **子项目清单**
-* 小程序端程序（开发完成，正在提交）  https://github.com/2020NCOV/ncov-report-mini-program
+* 小程序端程序（已提交）  https://github.com/2020NCOV/ncov-report-mini-program
 * 企业微信端程序（开发完成，正在提交）  https://github.com/2020NCOV/ncov-report-weixin-web
 * 后台管理系统完整版（PHP版本）（开发完成，正在提交） https://github.com/2020NCOV/ncov-report-manage-system-PHP
 * 后台管理系统前端代码（VUE框架）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-VUE
