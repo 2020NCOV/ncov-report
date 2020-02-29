@@ -1,14 +1,93 @@
-
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: 2020-02-29 10:38:28
+-- 服务器版本： 5.7.12
+-- PHP Version: 7.1.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- 数据库： `ncov`
+-- Database: `shangbao_demo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin_role`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT '角色名',
+  `remark` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `admin_role`
+--
+
+INSERT INTO `admin_role` (`id`, `name`, `remark`) VALUES
+(1, '超级管理员', NULL),
+(2, '机构管理员', NULL),
+(3, '一级部门管理员', NULL),
+(4, '二级部门管理员', NULL),
+(5, '辅导员', NULL),
+(6, '班主任', NULL),
+(7, '班长', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin_user`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_user` (
+  `id` int(11) NOT NULL,
+  `org_id` int(10) NOT NULL COMMENT '机构id',
+  `dep_id` int(11) NOT NULL COMMENT '所管理部门的id',
+  `username` varchar(20) NOT NULL COMMENT '用户名',
+  `name` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL COMMENT '密码',
+  `role` int(11) NOT NULL DEFAULT '0',
+  `is_del` int(11) NOT NULL DEFAULT '0',
+  `need_m_pass` int(11) NOT NULL DEFAULT '1',
+  `remarks` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `admin_user`
+--
+
+INSERT INTO `admin_user` (`id`, `org_id`, `dep_id`, `username`, `name`, `password`, `role`, `is_del`, `need_m_pass`, `remarks`) VALUES
+(1, 1, 0, 'admin', '系统程序', 'e27006a1373f95418c9492d46154a0fa', 1, 0, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin_user_log`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_user_log` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL COMMENT 'user表ID',
+  `name` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
+  `ope_type` int(11) NOT NULL COMMENT '操作类别',
+  `path` varchar(100) NOT NULL COMMENT 'URL',
+  `content` varchar(1000) CHARACTER SET utf8 NOT NULL COMMENT '操作内容',
+  `ip` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'IP地址',
+  `agent` varchar(1000) CHARACTER SET utf8 NOT NULL COMMENT '浏览器数据',
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -16,7 +95,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `com_district`
 --
 
-CREATE TABLE `com_district` (
+CREATE TABLE IF NOT EXISTS `com_district` (
   `id` int(11) NOT NULL COMMENT '	行政区划标识id',
   `name` varchar(255) NOT NULL COMMENT '行政区划名称',
   `value` int(11) NOT NULL COMMENT '行政区划字典值（不重复）',
@@ -24,7 +103,7 @@ CREATE TABLE `com_district` (
   `parent_id` int(11) NOT NULL COMMENT '父级行政区划id（最顶级为0）',
   `seq` int(11) NOT NULL DEFAULT '0' COMMENT '排序号（数值大的在前）',
   `short_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7214089 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `com_district`
@@ -444,11 +523,11 @@ INSERT INTO `com_district` (`id`, `name`, `value`, `level_id`, `parent_id`, `seq
 -- 表的结构 `com_district_level`
 --
 
-CREATE TABLE `com_district_level` (
+CREATE TABLE IF NOT EXISTS `com_district_level` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL COMMENT '级别名称',
   `level` int(11) NOT NULL COMMENT '级别序号（数值大的在前，不应重复）'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `com_district_level`
@@ -461,39 +540,313 @@ INSERT INTO `com_district_level` (`id`, `name`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `com_provincial`
+--
+
+CREATE TABLE IF NOT EXISTS `com_provincial` (
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `Provincial` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `com_provincial`
+--
+
+INSERT INTO `com_provincial` (`pid`, `Provincial`) VALUES
+(1, '北京'),
+(2, '天津'),
+(3, '上海'),
+(4, '重庆'),
+(5, '河北'),
+(6, '山西'),
+(7, '辽宁'),
+(8, '吉林'),
+(9, '黑龙江'),
+(10, '江苏'),
+(11, '浙江'),
+(12, '安徽'),
+(13, '福建'),
+(14, '江西'),
+(15, '山东'),
+(16, '河南'),
+(17, '湖北(武汉)'),
+(18, '湖北(其他地区)'),
+(19, '湖南'),
+(20, '广东'),
+(21, '甘肃'),
+(22, '四川'),
+(23, '贵州'),
+(24, '海南'),
+(25, '云南'),
+(26, '青海'),
+(27, '陕西'),
+(28, '广西'),
+(29, '西藏'),
+(30, '宁夏'),
+(31, '新疆'),
+(32, '内蒙'),
+(35, '大陆以外（香港）'),
+(36, '大陆以外（澳门）'),
+(37, '大陆以外（台湾）'),
+(38, '大陆以外（其他国家地区）');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `organization`
 --
 
-CREATE TABLE `organization` (
+CREATE TABLE IF NOT EXISTS `organization` (
   `id` int(11) NOT NULL,
   `corpname` varchar(200) NOT NULL COMMENT '单位名称',
   `corpname_full` varchar(200) DEFAULT NULL,
+  `access_type` varchar(10) NOT NULL COMMENT 'mp 小程序   qw 企业微信',
   `template_code` varchar(50) NOT NULL COMMENT '单位模板',
-  `corpid` varchar(100) NOT NULL COMMENT '单位编号',
+  `corp_code` varchar(100) NOT NULL COMMENT '单位编号',
   `type_corpname` varchar(100) NOT NULL COMMENT '公司名称/学校名称',
   `type_username` varchar(100) NOT NULL COMMENT '学号/职工号等内容提示语',
   `is_del` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `add_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `organization`
 --
 
-INSERT INTO `organization` (`id`, `corpname`, `corpname_full`, `template_code`, `corpid`, `type_corpname`, `type_username`, `is_del`, `status`, `add_date`) VALUES
-(1, '高校体验版', NULL, 'default', '100000001', '学校名称', '学号', 0, 0, '2020-02-22 21:47:18'),
-(2, '企事业单位体验版', NULL, 'company', '100000002', '单位名称', '职工号', 0, 0, '2020-02-22 21:47:53');
+INSERT INTO `organization` (`id`, `corpname`, `corpname_full`, `access_type`, `template_code`, `corp_code`, `type_corpname`, `type_username`, `is_del`, `status`, `add_date`) VALUES
+(1, '高校小程序体验', '学校全称', 'mp', 'school_df', '100000001', '学校', '学号', 0, 0, '2020-02-22 21:47:18'),
+(2, '企业小程序体验', '企业全称', 'mp', 'company_df', '100000002', '单位', '职工号', 0, 0, '2020-02-22 21:47:53'),
+(11, '高校企业微信版本体验', '高校全称企业微信', 'qw', '100000003', '100000003', '学校', '学号', 0, 0, '2020-02-22 21:47:53');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `report_record`
+-- 表的结构 `org_dep`
 --
 
-CREATE TABLE `report_record` (
-  `record_id` int(11) NOT NULL COMMENT '上报记录标识id',
+CREATE TABLE IF NOT EXISTS `org_dep` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL,
+  `dep_name` varchar(100) NOT NULL,
+  `level` int(11) NOT NULL,
+  `is_del` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `remark` varchar(100) DEFAULT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `org_tag` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `is_del` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `remark` varchar(100) DEFAULT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_user_info_100000003`
+--
+
+CREATE TABLE IF NOT EXISTS `org_user_info_100000003` (
+  `id` int(11) NOT NULL,
+  `cor_id` int(11) NOT NULL COMMENT '机构id',
+  `cor_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识',
+  `name` varchar(100) NOT NULL COMMENT '姓名',
+  `school` varchar(100) DEFAULT NULL COMMENT '学院',
+  `grade` varchar(20) DEFAULT NULL COMMENT '年级',
+  `source_place` varchar(30) DEFAULT NULL COMMENT '生源地',
+  `telphone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `is_left_bj` varchar(10) DEFAULT NULL COMMENT '是否离京',
+  `left_date` varchar(10) DEFAULT NULL COMMENT '离开日期',
+  `left_transport` varchar(20) DEFAULT NULL COMMENT '离开使用交通工具',
+  `left_transport_info` varchar(100) DEFAULT NULL COMMENT '具体交通信息',
+  `goto_hubei` varchar(20) DEFAULT NULL COMMENT '去湖北情况',
+  `goto_hubei_date1` varchar(10) DEFAULT NULL COMMENT '湖北日期起',
+  `goto_hubei_date2` varchar(10) DEFAULT NULL COMMENT '湖北日期止',
+  `goto_hubei_info` varchar(1000) DEFAULT NULL COMMENT '去湖北详情',
+  `is_touch_hubei_person` varchar(10) DEFAULT NULL COMMENT '是否接触过湖北地区活动的人员',
+  `touch_hubei_date1` varchar(10) DEFAULT NULL COMMENT '接触时间1',
+  `touch_hubei_date2` varchar(10) DEFAULT NULL COMMENT '接触时间2',
+  `is_return` varchar(50) DEFAULT NULL COMMENT '是否返京',
+  `return_date` varchar(10) DEFAULT NULL COMMENT '返京日期',
+  `return_transport` varchar(50) DEFAULT NULL COMMENT '交通工具',
+  `return_transport_info` varchar(100) DEFAULT NULL COMMENT '交通工具详细信息',
+  `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  `ip` varchar(20) DEFAULT NULL COMMENT 'IP',
+  `agent` varchar(500) DEFAULT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_user_info_company_df`
+--
+
+CREATE TABLE IF NOT EXISTS `org_user_info_company_df` (
+  `id` int(11) NOT NULL,
+  `cor_id` int(11) NOT NULL COMMENT '机构id',
+  `cor_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识',
+  `name` varchar(100) NOT NULL COMMENT '姓名',
+  `school` varchar(100) DEFAULT NULL COMMENT '学院',
+  `grade` varchar(20) DEFAULT NULL COMMENT '年级',
+  `source_place` varchar(30) DEFAULT NULL COMMENT '生源地',
+  `telphone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `is_left_bj` varchar(10) DEFAULT NULL COMMENT '是否离京',
+  `left_date` varchar(10) DEFAULT NULL COMMENT '离开日期',
+  `left_transport` varchar(20) DEFAULT NULL COMMENT '离开使用交通工具',
+  `left_transport_info` varchar(100) DEFAULT NULL COMMENT '具体交通信息',
+  `goto_hubei` varchar(20) DEFAULT NULL COMMENT '去湖北情况',
+  `goto_hubei_date1` varchar(10) DEFAULT NULL COMMENT '湖北日期起',
+  `goto_hubei_date2` varchar(10) DEFAULT NULL COMMENT '湖北日期止',
+  `goto_hubei_info` varchar(1000) DEFAULT NULL COMMENT '去湖北详情',
+  `is_touch_hubei_person` varchar(10) DEFAULT NULL COMMENT '是否接触过湖北地区活动的人员',
+  `touch_hubei_date1` varchar(10) DEFAULT NULL COMMENT '接触时间1',
+  `touch_hubei_date2` varchar(10) DEFAULT NULL COMMENT '接触时间2',
+  `is_return` varchar(50) DEFAULT NULL COMMENT '是否返京',
+  `return_date` varchar(10) DEFAULT NULL COMMENT '返京日期',
+  `return_transport` varchar(50) DEFAULT NULL COMMENT '交通工具',
+  `return_transport_info` varchar(100) DEFAULT NULL COMMENT '交通工具详细信息',
+  `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  `ip` varchar(20) DEFAULT NULL COMMENT 'IP',
+  `agent` varchar(500) DEFAULT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_user_info_school_df`
+--
+
+CREATE TABLE IF NOT EXISTS `org_user_info_school_df` (
+  `id` int(11) NOT NULL,
+  `cor_id` int(11) NOT NULL COMMENT '机构id',
+  `cor_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识',
+  `name` varchar(100) NOT NULL COMMENT '姓名',
+  `school` varchar(100) DEFAULT NULL COMMENT '学院',
+  `grade` varchar(20) DEFAULT NULL COMMENT '年级',
+  `source_place` varchar(30) DEFAULT NULL COMMENT '生源地',
+  `telphone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `is_left_bj` varchar(10) DEFAULT NULL COMMENT '是否离京',
+  `left_date` varchar(10) DEFAULT NULL COMMENT '离开日期',
+  `left_transport` varchar(20) DEFAULT NULL COMMENT '离开使用交通工具',
+  `left_transport_info` varchar(100) DEFAULT NULL COMMENT '具体交通信息',
+  `goto_hubei` varchar(20) DEFAULT NULL COMMENT '去湖北情况',
+  `goto_hubei_date1` varchar(10) DEFAULT NULL COMMENT '湖北日期起',
+  `goto_hubei_date2` varchar(10) DEFAULT NULL COMMENT '湖北日期止',
+  `goto_hubei_info` varchar(1000) DEFAULT NULL COMMENT '去湖北详情',
+  `is_touch_hubei_person` varchar(10) DEFAULT NULL COMMENT '是否接触过湖北地区活动的人员',
+  `touch_hubei_date1` varchar(10) DEFAULT NULL COMMENT '接触时间1',
+  `touch_hubei_date2` varchar(10) DEFAULT NULL COMMENT '接触时间2',
+  `is_return` varchar(50) DEFAULT NULL COMMENT '是否返京',
+  `return_date` varchar(10) DEFAULT NULL COMMENT '返京日期',
+  `return_transport` varchar(50) DEFAULT NULL COMMENT '交通工具',
+  `return_transport_info` varchar(100) DEFAULT NULL COMMENT '交通工具详细信息',
+  `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  `ip` varchar(20) DEFAULT NULL COMMENT 'IP',
+  `agent` varchar(500) DEFAULT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_whitelist`
+--
+
+CREATE TABLE IF NOT EXISTS `org_whitelist` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL COMMENT '机构id',
+  `userID` varchar(100) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL COMMENT '用户标识',
+  `name` varchar(100) NOT NULL COMMENT '姓名',
+  `gender` varchar(10) DEFAULT NULL COMMENT '性别',
+  `sub1_department_id` int(10) DEFAULT NULL COMMENT '一级子部门id',
+  `sub2_department_id` int(10) DEFAULT NULL COMMENT '二级子部门',
+  `tag1` varchar(100) DEFAULT NULL COMMENT '类型1（学生类型）',
+  `tag2` varchar(100) DEFAULT NULL,
+  `tag3` varchar(100) DEFAULT NULL,
+  `tag4` varchar(100) DEFAULT NULL,
+  `add_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  `last_update_time` datetime DEFAULT NULL COMMENT '最后更新时间',
+  `add_remark` varchar(200) NOT NULL COMMENT '添加备注',
+  `dep_name` varchar(100) DEFAULT NULL COMMENT '用户录入数据，为了便于核对',
+  `report_id` int(11) NOT NULL COMMENT '报告编号',
+  `report_date` datetime NOT NULL COMMENT '最后报告时间',
+  `status` int(10) NOT NULL DEFAULT '0' COMMENT '状态'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `report_record_100000003`
+--
+
+CREATE TABLE IF NOT EXISTS `report_record_100000003` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL COMMENT '机构编号',
+  `org_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识号',
+  `name` varchar(100) NOT NULL COMMENT '姓名',
+  `report_date` date NOT NULL COMMENT '上报日期',
+  `today_change` int(10) NOT NULL,
+  `change_content` varchar(500) DEFAULT NULL,
+  `is_return_school` varchar(50) NOT NULL COMMENT '是否返校等',
+  `today_place` varchar(255) DEFAULT NULL COMMENT '今日所在省',
+  `today_place_longitude` float DEFAULT NULL COMMENT '经度',
+  `today_place_latitude` float DEFAULT NULL COMMENT '纬度',
+  `today_place_info` varchar(1000) DEFAULT NULL COMMENT '今日所在地详细地址',
+  `today_place_type` int(11) DEFAULT NULL COMMENT '目前所在地性质',
+  `today_place_other` varchar(200) DEFAULT NULL,
+  `today_goto_hubei` varchar(10) DEFAULT NULL COMMENT '今日是否去过湖北',
+  `today_touch_person` varchar(11) DEFAULT NULL COMMENT '今日是否接触过湖北地区人员',
+  `today_health` varchar(11) DEFAULT NULL COMMENT '今日是否有发热等症状',
+  `current_temperature` float DEFAULT NULL COMMENT '当前体温（摄氏度）',
+  `today_confirmed` varchar(20) DEFAULT NULL COMMENT '今日是否确诊',
+  `today_touche_confirmed` varchar(11) DEFAULT NULL COMMENT '接触人员是否确诊',
+  `today_isolate` varchar(11) DEFAULT NULL COMMENT '是否处于隔离观察',
+  `isolate_place` varchar(400) DEFAULT NULL COMMENT '隔离地点',
+  `today_return` varchar(50) DEFAULT NULL COMMENT '今日返京',
+  `today_transport` varchar(100) DEFAULT NULL COMMENT '交通工具',
+  `today_transport_info` varchar(300) DEFAULT NULL COMMENT '交通工具信息',
+  `others` varchar(1000) DEFAULT NULL COMMENT '其他',
+  `ip` varchar(20) NOT NULL,
+  `agent` varchar(500) NOT NULL,
+  `addtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `report_record_company_df`
+--
+
+CREATE TABLE IF NOT EXISTS `report_record_company_df` (
+  `id` bigint(20) NOT NULL,
   `wxuid` int(11) DEFAULT NULL COMMENT '微信小程序用户id',
+  `org_id` int(11) NOT NULL COMMENT '机构id',
+  `org_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识码',
+  `name` varchar(100) DEFAULT NULL COMMENT '姓名',
   `is_return_school` int(11) NOT NULL COMMENT '	是否返校（选项值）',
   `return_dorm_num` varchar(255) DEFAULT NULL COMMENT '所在宿舍号',
   `return_time` date DEFAULT NULL COMMENT '返校时间（Unix时间戳-UTC时间）',
@@ -508,168 +861,344 @@ CREATE TABLE `report_record` (
   `psy_status` int(11) DEFAULT NULL,
   `psy_demand` int(11) DEFAULT NULL,
   `psy_knowledge` int(11) DEFAULT NULL,
-  `remarks` varchar(4000) DEFAULT NULL COMMENT '其它信息',
-  `id` bigint(20) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `return_company_date` varchar(100) DEFAULT NULL,
   `plan_company_date` varchar(100) DEFAULT NULL,
-  `template_code` varchar(100) DEFAULT NULL
+  `template_code` varchar(100) DEFAULT NULL,
+  `remarks` varchar(4000) DEFAULT NULL COMMENT '其它信息',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `report_record`
---
-
-INSERT INTO `report_record` (`record_id`, `wxuid`, `is_return_school`, `return_dorm_num`, `return_time`, `return_district_value`, `return_district_path`, `return_traffic_info`, `current_district_value`, `current_district_path`, `current_health_value`, `current_contagion_risk_value`, `current_temperature`, `psy_status`, `psy_demand`, `psy_knowledge`, `remarks`, `id`, `time`, `return_company_date`, `plan_company_date`, `template_code`) VALUES
-(0, 1, 2, NULL, NULL, 0, NULL, NULL, 3711000, NULL, 5, 7, 36.8, 1, 5, 1, '无', 1, '2020-02-25 00:41:27', NULL, NULL, 'default'),
-(0, 1, 2, NULL, NULL, 0, NULL, NULL, 3711000, NULL, 5, 7, 33, 1, 5, 1, '无', 2, '2020-02-25 06:39:26', NULL, NULL, 'default'),
-(0, 7, 2, NULL, NULL, 0, NULL, NULL, 1101000, NULL, 5, 7, 36.5, 1, 5, 1, '', 3, '2020-02-25 09:34:13', NULL, NULL, 'default'),
-(0, 9, 2, NULL, NULL, 0, NULL, NULL, 1101000, NULL, 3, 2, 15, 1, 1, 2, '', 4, '2020-02-25 09:48:18', NULL, NULL, 'default'),
-(0, 9, 2, NULL, NULL, 0, NULL, NULL, 1101000, NULL, 3, 2, 137, 1, 1, 2, '', 5, '2020-02-25 09:48:39', NULL, NULL, 'default');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user_bind_info`
+-- 表的结构 `report_record_school_df`
 --
 
-CREATE TABLE `user_bind_info` (
+CREATE TABLE IF NOT EXISTS `report_record_school_df` (
+  `id` bigint(20) NOT NULL,
+  `wxuid` int(11) DEFAULT NULL COMMENT '微信小程序用户id',
+  `org_id` int(11) NOT NULL COMMENT '机构id',
+  `org_name` varchar(100) NOT NULL COMMENT '机构名称',
+  `userID` varchar(100) NOT NULL COMMENT '用户标识码',
+  `name` varchar(100) DEFAULT NULL COMMENT '姓名',
+  `is_return_school` int(11) NOT NULL COMMENT '	是否返校（选项值）',
+  `return_dorm_num` varchar(255) DEFAULT NULL COMMENT '所在宿舍号',
+  `return_time` date DEFAULT NULL COMMENT '返校时间（Unix时间戳-UTC时间）',
+  `return_district_value` int(11) DEFAULT NULL COMMENT '从哪里返回学校（行政区划字典值）',
+  `return_district_path` varchar(255) DEFAULT NULL COMMENT '从哪里返回学校（从上级到下级按逗号分隔的字典值）',
+  `return_traffic_info` varchar(4000) DEFAULT NULL COMMENT '返校过程的交通信息',
+  `current_district_value` int(11) DEFAULT NULL COMMENT '目前所在地',
+  `current_district_path` varchar(255) DEFAULT NULL COMMENT '目前所在地（从上级到下级按逗号分隔的字典值）',
+  `current_health_value` int(11) DEFAULT NULL COMMENT '目前本人身体状况（选项值）',
+  `current_contagion_risk_value` int(11) DEFAULT NULL COMMENT '被传染风险（选项值）',
+  `current_temperature` float DEFAULT NULL COMMENT '当前体温（摄氏度）',
+  `psy_status` int(11) DEFAULT NULL,
+  `psy_demand` int(11) DEFAULT NULL,
+  `psy_knowledge` int(11) DEFAULT NULL,
+  `return_company_date` varchar(100) DEFAULT NULL,
+  `plan_company_date` varchar(100) DEFAULT NULL,
+  `template_code` varchar(100) DEFAULT NULL,
+  `remarks` varchar(4000) DEFAULT NULL COMMENT '其它信息',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `wx_mp_bind_info`
+--
+
+CREATE TABLE IF NOT EXISTS `wx_mp_bind_info` (
   `id` int(11) NOT NULL,
-  `dep_id` int(11) NOT NULL COMMENT 'department_id',
+  `org_id` int(11) NOT NULL COMMENT 'department_id',
   `wx_uid` int(11) NOT NULL COMMENT 'weixin_id',
   `username` varchar(100) NOT NULL COMMENT '用户唯一表示',
   `isbind` int(11) NOT NULL DEFAULT '1' COMMENT '是否绑定',
   `bind_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `unbind_date` datetime DEFAULT NULL
+  `unbind_date` datetime DEFAULT NULL,
+  `remark` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `user_bind_info`
---
-
-INSERT INTO `user_bind_info` (`id`, `dep_id`, `wx_uid`, `username`, `isbind`, `bind_date`, `unbind_date`) VALUES
-(1, 1, 1, '123', 0, '2020-02-25 14:39:05', '2020-02-25 14:39:36'),
-(2, 1, 1, '111', 1, '2020-02-25 14:39:49', NULL),
-(3, 1, 6, '1900022750', 1, '2020-02-25 17:24:57', NULL),
-(4, 1, 7, '123', 0, '2020-02-25 17:33:37', '2020-02-25 17:34:20'),
-(5, 1, 8, '123456', 1, '2020-02-25 17:42:15', NULL),
-(6, 1, 9, '13456494', 0, '2020-02-25 17:47:36', '2020-02-25 17:52:54');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user_weixin`
+-- 表的结构 `wx_mp_user`
 --
 
-CREATE TABLE `user_weixin` (
+CREATE TABLE IF NOT EXISTS `wx_mp_user` (
   `wid` int(11) NOT NULL,
   `openid` varchar(512) DEFAULT NULL,
-  `corpid` varchar(100) DEFAULT NULL,
   `token` varchar(200) NOT NULL,
   `time_out` int(11) NOT NULL,
   `session_key` varchar(512) DEFAULT NULL,
+  `nickname` varchar(512) DEFAULT NULL,
+  `gender` varchar(512) DEFAULT NULL,
+  `city` varchar(512) DEFAULT NULL,
+  `avatar_url` varchar(512) DEFAULT NULL,
   `login_time` varchar(512) DEFAULT NULL,
-  `userid` varchar(20) DEFAULT NULL,
+  `userid` varchar(100) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `phone_num` varchar(30) DEFAULT NULL,
   `reg_date` date DEFAULT NULL COMMENT '注册时间',
   `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `user_weixin`
---
-
-INSERT INTO `user_weixin` (`wid`, `openid`, `corpid`, `token`, `time_out`, `session_key`, `login_time`, `userid`, `name`, `phone_num`, `reg_date`, `status`) VALUES
-(1, 'oinn54uP3y7xwrpbjj8XE2uppqHM', NULL, 'e647728eb402c3abeba588ea36bab0d3b229e1b1', 1582709098, NULL, '2020-02-25 17:24:58', '111', '111', '13810222233', NULL, 0),
-(2, 'oinn54tQ7EK9JW-N34t8pkpIeQQ8', NULL, 'be4bc481a5049904cc0eebdaa6cba5b2a5a553dd', 1582699274, NULL, '2020-02-25 14:41:14', NULL, NULL, NULL, NULL, 0),
-(3, 'oinn54jgqhIPsaEHPp1HFee6Eevc', NULL, 'f75e79d0c10693bb4cdc81471f8c7b545bdce651', 1582699274, NULL, '2020-02-25 14:41:14', NULL, NULL, NULL, NULL, 0),
-(4, 'oinn54nJeMa-p2EQX8z6sgEt4baI', NULL, 'f931dd72d63150c8962ba82bc22f6fb34f8c5ec3', 1582700960, NULL, '2020-02-25 15:09:20', NULL, NULL, NULL, NULL, 0),
-(5, 'oinn54vZD9dnGJtXvirlw0B7KQKo', NULL, 'fde648b6d7cf5616396ba0f85fcd9412cf49a658', 1582705905, NULL, '2020-02-25 16:31:45', NULL, NULL, NULL, NULL, 0),
-(6, 'oinn54jox_b-b16Et2hQOYro-TTE', NULL, '64efbd3fd14fb1157487d5c432fefe67b9c2cde0', 1582708977, NULL, '2020-02-25 17:22:57', '1900022750', 'msq', '15733205201', NULL, 0),
-(7, 'oinn54tMOSDP1ltjiC6GxXqVOdJQ', NULL, 'd9f1d6dead117e14717caac45eb39aabd411ebfe', 1582709592, NULL, '2020-02-25 17:33:12', '123', '测试', '13888888888', NULL, 0),
-(8, 'oinn54pN7fw01QbdfLcv-JXMiFj0', NULL, '80901e9f47ad3fda25ba81ae98e62ca0f5f706a0', 1582710101, NULL, '2020-02-25 17:41:41', '123456', '哦哦', '13141461584', NULL, 0),
-(9, 'oinn54unQypptqOrTb5Bz0SqBo4g', NULL, '7a6e818d96195b0228c0f6a6e495b239584447b3', 1582710398, NULL, '2020-02-25 17:46:38', '13456494', '哥哥', '13679499778', NULL, 0);
+-- --------------------------------------------------------
 
 --
--- 转储表的索引
+-- 表的结构 `wx_qy_access_token`
+--
+
+CREATE TABLE IF NOT EXISTS `wx_qy_access_token` (
+  `id` int(11) NOT NULL,
+  `agent_id` varchar(20) NOT NULL,
+  `access_token` varchar(300) NOT NULL,
+  `expires_in` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `wx_qy_log`
+--
+
+CREATE TABLE IF NOT EXISTS `wx_qy_log` (
+  `id` int(11) NOT NULL,
+  `url` varchar(300) NOT NULL,
+  `response` varchar(3300) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `ip` varchar(100) DEFAULT NULL,
+  `agent` varchar(1000) DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- 表的索引 `com_district`
+-- Indexes for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username_unique` (`username`),
+  ADD KEY `username` (`username`);
+
+--
+-- Indexes for table `admin_user_log`
+--
+ALTER TABLE `admin_user_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `com_district`
 --
 ALTER TABLE `com_district`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk-关联行政区划级别_idx` (`level_id`);
 
 --
--- 表的索引 `com_district_level`
+-- Indexes for table `com_district_level`
 --
 ALTER TABLE `com_district_level`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `organization`
+-- Indexes for table `com_provincial`
+--
+ALTER TABLE `com_provincial`
+  ADD PRIMARY KEY (`pid`);
+
+--
+-- Indexes for table `organization`
 --
 ALTER TABLE `organization`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `report_record`
+-- Indexes for table `org_dep`
 --
-ALTER TABLE `report_record`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk-上报记录标识id` (`record_id`);
-
---
--- 表的索引 `user_bind_info`
---
-ALTER TABLE `user_bind_info`
+ALTER TABLE `org_dep`
   ADD PRIMARY KEY (`id`);
 
 --
--- 表的索引 `user_weixin`
+-- Indexes for table `org_tag`
 --
-ALTER TABLE `user_weixin`
+ALTER TABLE `org_tag`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_user_info_100000003`
+--
+ALTER TABLE `org_user_info_100000003`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_user_info_company_df`
+--
+ALTER TABLE `org_user_info_company_df`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_user_info_school_df`
+--
+ALTER TABLE `org_user_info_school_df`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_whitelist`
+--
+ALTER TABLE `org_whitelist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `report_record_100000003`
+--
+ALTER TABLE `report_record_100000003`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `report_record_company_df`
+--
+ALTER TABLE `report_record_company_df`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `report_record_school_df`
+--
+ALTER TABLE `report_record_school_df`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wx_mp_bind_info`
+--
+ALTER TABLE `wx_mp_bind_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wx_mp_user`
+--
+ALTER TABLE `wx_mp_user`
   ADD PRIMARY KEY (`wid`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- Indexes for table `wx_qy_access_token`
+--
+ALTER TABLE `wx_qy_access_token`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wx_qy_log`
+--
+ALTER TABLE `wx_qy_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `com_district`
+-- AUTO_INCREMENT for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `admin_user_log`
+--
+ALTER TABLE `admin_user_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `com_district`
 --
 ALTER TABLE `com_district`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '	行政区划标识id', AUTO_INCREMENT=7214089;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '	行政区划标识id',AUTO_INCREMENT=7214089;
 --
--- 使用表AUTO_INCREMENT `com_district_level`
+-- AUTO_INCREMENT for table `com_district_level`
 --
 ALTER TABLE `com_district_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- 使用表AUTO_INCREMENT `organization`
+-- AUTO_INCREMENT for table `organization`
 --
 ALTER TABLE `organization`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
--- 使用表AUTO_INCREMENT `report_record`
+-- AUTO_INCREMENT for table `org_dep`
 --
-ALTER TABLE `report_record`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+ALTER TABLE `org_dep`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- 使用表AUTO_INCREMENT `user_bind_info`
+-- AUTO_INCREMENT for table `org_tag`
 --
-ALTER TABLE `user_bind_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+ALTER TABLE `org_tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- 使用表AUTO_INCREMENT `user_weixin`
+-- AUTO_INCREMENT for table `org_user_info_100000003`
 --
-ALTER TABLE `user_weixin`
-  MODIFY `wid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-COMMIT;
+ALTER TABLE `org_user_info_100000003`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `org_user_info_company_df`
+--
+ALTER TABLE `org_user_info_company_df`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `org_user_info_school_df`
+--
+ALTER TABLE `org_user_info_school_df`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `org_whitelist`
+--
+ALTER TABLE `org_whitelist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `report_record_100000003`
+--
+ALTER TABLE `report_record_100000003`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `report_record_company_df`
+--
+ALTER TABLE `report_record_company_df`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `report_record_school_df`
+--
+ALTER TABLE `report_record_school_df`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wx_mp_bind_info`
+--
+ALTER TABLE `wx_mp_bind_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wx_mp_user`
+--
+ALTER TABLE `wx_mp_user`
+  MODIFY `wid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wx_qy_access_token`
+--
+ALTER TABLE `wx_qy_access_token`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wx_qy_log`
+--
+ALTER TABLE `wx_qy_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
