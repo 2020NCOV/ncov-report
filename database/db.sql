@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2020-02-29 10:38:28
+-- Generation Time: 2020-03-01 06:04:46
 -- 服务器版本： 5.7.12
 -- PHP Version: 7.1.23
 
@@ -19,6 +19,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `shangbao_demo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin_ope_type`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_ope_type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL COMMENT '操作名',
+  `status` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `admin_ope_type`
+--
+
+INSERT INTO `admin_ope_type` (`id`, `name`, `status`) VALUES
+(1, '登录', 0),
+(2, '修改密码', 0),
+(3, '导出上报数据', 0),
+(4, '添加白名单数据', 0),
+(5, '批量导入白名单数据', 0),
+(6, '删除白名单数据', 0),
+(7, '添加部门', 0),
+(8, '修改部门', 0),
+(9, '部门管理员添加', 0),
+(10, '修改管理员信息', 0),
+(11, '添加标签', 0),
+(12, '修改标签', 0);
 
 -- --------------------------------------------------------
 
@@ -39,8 +69,8 @@ CREATE TABLE IF NOT EXISTS `admin_role` (
 INSERT INTO `admin_role` (`id`, `name`, `remark`) VALUES
 (1, '超级管理员', NULL),
 (2, '机构管理员', NULL),
-(3, '一级部门管理员', NULL),
-(4, '二级部门管理员', NULL),
+(3, '部门管理员', NULL),
+(4, '二级部门管理员', '预留'),
 (5, '辅导员', NULL),
 (6, '班主任', NULL),
 (7, '班长', NULL);
@@ -61,15 +91,16 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   `role` int(11) NOT NULL DEFAULT '0',
   `is_del` int(11) NOT NULL DEFAULT '0',
   `need_m_pass` int(11) NOT NULL DEFAULT '1',
-  `remarks` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+  `remarks` varchar(200) NOT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `admin_user`
 --
 
-INSERT INTO `admin_user` (`id`, `org_id`, `dep_id`, `username`, `name`, `password`, `role`, `is_del`, `need_m_pass`, `remarks`) VALUES
-(1, 1, 0, 'admin', '系统程序', 'e27006a1373f95418c9492d46154a0fa', 1, 0, 0, '');
+INSERT INTO `admin_user` (`id`, `org_id`, `dep_id`, `username`, `name`, `password`, `role`, `is_del`, `need_m_pass`, `remarks`, `datetime`) VALUES
+(1, 1, 0, 'admin', '系统程序', '076c1c8c99492e2aeac2481b1de7c527', 2, 0, 0, '', '2020-02-29 13:58:39');
 
 -- --------------------------------------------------------
 
@@ -615,7 +646,7 @@ CREATE TABLE IF NOT EXISTS `organization` (
 --
 
 INSERT INTO `organization` (`id`, `corpname`, `corpname_full`, `access_type`, `template_code`, `corp_code`, `type_corpname`, `type_username`, `is_del`, `status`, `add_date`) VALUES
-(1, '高校小程序体验', '学校全称', 'mp', 'school_df', '100000001', '学校', '学号', 0, 0, '2020-02-22 21:47:18'),
+(1, '****学校', '学校全称', 'mp', 'school_df', '100000001', '学校', '学号', 0, 0, '2020-02-22 21:47:18'),
 (2, '企业小程序体验', '企业全称', 'mp', 'company_df', '100000002', '单位', '职工号', 0, 0, '2020-02-22 21:47:53'),
 (11, '高校企业微信版本体验', '高校全称企业微信', 'qw', '100000003', '100000003', '学校', '学号', 0, 0, '2020-02-22 21:47:53');
 
@@ -647,6 +678,42 @@ CREATE TABLE IF NOT EXISTS `org_tag` (
   `org_id` int(11) NOT NULL,
   `dep_id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
+  `is_del` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `remark` varchar(100) DEFAULT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_tag_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `org_tag_admin` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `is_del` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  `remark` varchar(100) DEFAULT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `org_tag_user`
+--
+
+CREATE TABLE IF NOT EXISTS `org_tag_user` (
+  `id` int(11) NOT NULL,
+  `org_id` int(11) NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  `userID` varchar(100) NOT NULL,
   `is_del` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   `remark` varchar(100) DEFAULT NULL,
@@ -789,8 +856,8 @@ CREATE TABLE IF NOT EXISTS `org_whitelist` (
   `last_update_time` datetime DEFAULT NULL COMMENT '最后更新时间',
   `add_remark` varchar(200) NOT NULL COMMENT '添加备注',
   `dep_name` varchar(100) DEFAULT NULL COMMENT '用户录入数据，为了便于核对',
-  `report_id` int(11) NOT NULL COMMENT '报告编号',
-  `report_date` datetime NOT NULL COMMENT '最后报告时间',
+  `report_id` int(11) DEFAULT '0' COMMENT '报告编号',
+  `report_date` datetime DEFAULT '2000-01-01 00:00:00' COMMENT '最后报告时间',
   `status` int(10) NOT NULL DEFAULT '0' COMMENT '状态'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -978,6 +1045,12 @@ CREATE TABLE IF NOT EXISTS `wx_qy_log` (
 --
 
 --
+-- Indexes for table `admin_ope_type`
+--
+ALTER TABLE `admin_ope_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `admin_role`
 --
 ALTER TABLE `admin_role`
@@ -1032,6 +1105,18 @@ ALTER TABLE `org_dep`
 -- Indexes for table `org_tag`
 --
 ALTER TABLE `org_tag`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_tag_admin`
+--
+ALTER TABLE `org_tag_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `org_tag_user`
+--
+ALTER TABLE `org_tag_user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1105,6 +1190,11 @@ ALTER TABLE `wx_qy_log`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_ope_type`
+--
+ALTER TABLE `admin_ope_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `admin_role`
 --
 ALTER TABLE `admin_role`
@@ -1113,7 +1203,7 @@ ALTER TABLE `admin_role`
 -- AUTO_INCREMENT for table `admin_user`
 --
 ALTER TABLE `admin_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `admin_user_log`
 --
@@ -1143,6 +1233,16 @@ ALTER TABLE `org_dep`
 -- AUTO_INCREMENT for table `org_tag`
 --
 ALTER TABLE `org_tag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `org_tag_admin`
+--
+ALTER TABLE `org_tag_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `org_tag_user`
+--
+ALTER TABLE `org_tag_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `org_user_info_100000003`
