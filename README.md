@@ -42,9 +42,11 @@ ___
 
 ### 子项目清单
 * 小程序端程序（已提交）  https://github.com/2020NCOV/ncov-report-mini-program
-* 小程序服务端程序（已提交）  https://github.com/2020NCOV/ncov-report-mini-program-server
+* 小程序服务端程序PHP（已提交）  https://github.com/2020NCOV/ncov-report-mini-program-server
+* 后台管理系统完整版PHP（已提交） https://github.com/2020NCOV/ncov-report-manage-system-PHP
+* 小程序服务端程序JAVA（已启动）  https://github.com/2020NCOV/MiniProgram-server-JAVA
+* 小程序服务端程序Golang（已启动）  https://github.com/2020NCOV/MiniProgram-server-Golang
 * 企业微信端程序（开发完成，正在提交）  https://github.com/2020NCOV/ncov-report-weixin-web
-* 后台管理系统完整版（PHP版本）（已提交） https://github.com/2020NCOV/ncov-report-manage-system-PHP
 * 后台管理系统前端代码（VUE框架）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-VUE
 * 后台管理系统前端代码（React框架）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-REACT
 * 后台管理系统前端代码（Angular+DevUI）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-ANGULAR
