@@ -47,6 +47,7 @@ ___
 * 小程序服务端程序JAVA（已启动）  https://github.com/2020NCOV/MiniProgram-server-JAVA
 * 小程序服务端程序Golang（已启动）  https://github.com/2020NCOV/MiniProgram-server-Golang
 * 企业微信端程序（开发完成，正在提交）  https://github.com/2020NCOV/ncov-report-weixin-web
+* 钉钉端程序（未启动）  https://github.com/2020NCOV/ncov-report-ding-web
 * 后台管理系统前端代码（VUE框架）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-VUE
 * 后台管理系统前端代码（React框架）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-REACT
 * 后台管理系统前端代码（Angular+DevUI）（未启动） https://github.com/2020NCOV/ncov-report-manage-system-ANGULAR
