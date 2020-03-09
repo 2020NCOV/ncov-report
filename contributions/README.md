@@ -20,6 +20,7 @@ https://github.com/firstcontributions/first-contributions
 
 ### 如何提交一个PR
 #### 1. fork本仓库到自己的仓库
+点击上方fork按钮即可
 #### 2. 命令行中 git clone 到本地
 点击自己仓库中的clone or download按钮（绿色的那个）然后复制链接就可,之后再命令行中输入下面的命令
 
@@ -30,6 +31,7 @@ cd ncov-report
 ```
 #### 4. 在contributions文件夹中新建一个.md文件作为个人简介
 文件名：英文网名.md
+
 文件内容：个人简介（请不要包含个人隐私信息）
 #### 5. 提交修改过后的代码到自己的仓库
 ```
