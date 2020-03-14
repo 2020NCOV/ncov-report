@@ -5,7 +5,4 @@
 * [duanwenhui](duanwenhuiIMAU.md)
 * [KahKee](KahKee.md)
 * [Mysticsaint](zhoukunhao.md)
-* [昵称](/文件路径及名称)
-* [昵称1](/file1.md)
-* [昵称2](/file2.md)
-* [yaoyunfeng](/yyf.md)
+* [yaoyunfeng](yyf.md)
