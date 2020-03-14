@@ -5,4 +5,4 @@
 * [昵称](/文件路径及名称)
 * [昵称1](/file1.md)
 * [昵称2](/file2.md)
-- [duanwenhui](/duanwenhuiIMAU.md)
+- [duanwenhui](duanwenhuiIMAU.md)
