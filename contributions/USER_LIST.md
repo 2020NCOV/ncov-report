@@ -3,4 +3,4 @@
 请参考以下格式在文件末尾追加内容
 
 * [duanwenhui](duanwenhuiIMAU.md)
-* [KahKee](/KahKee.md)
+* [KahKee](KahKee.md)
