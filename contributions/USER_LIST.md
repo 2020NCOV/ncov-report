@@ -6,7 +6,7 @@
 * [KahKee](KahKee.md)
 * [Mysticsaint](users/zhoukunhao.md)
 * [yaoyunfeng](yyf.md)
-* [sunxingyu](rock.md)
+* [sunxingyu](users/1004701224.md)
 * [沧海猎人](users/zhangqixun.md)
 * [Nick-yifan](Nick-yifan.md)
 * [ZZZXXXCCCWXY999](ZZZXXXCCCWXY999.md)
