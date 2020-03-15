@@ -2,10 +2,10 @@
 
 请参考以下格式在文件末尾追加内容
 
-* [duanwenhui](duanwenhuiIMAU.md)
+* [duanwenhui](users/duanwenhuiIMAU.md)
 * [KahKee](KahKee.md)
 * [Mysticsaint](users/Mysticsaint.md)
-* [yaoyunfeng](yyf.md)
+* [yaoyunfeng](yyf.md)user/
 * [sunxingyu](users/1004701224.md)
 * [沧海猎人](users/zhangqixun.md)
 * [Nick-yifan](users/Nick-yifan.md)
