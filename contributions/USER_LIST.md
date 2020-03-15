@@ -5,7 +5,7 @@
 * [duanwenhui](duanwenhuiIMAU.md)
 * [KahKee](KahKee.md)
 * [Mysticsaint](zhoukunhao.md)
-* [yaoyunfeng](yyf.md)
+* [yaoyunfeng](users/yyf.md)
 * [sunxingyu](rock.md)
 * [沧海猎人](users/zhangqixun.md)
 * [Nick-yifan](Nick-yifan.md)
