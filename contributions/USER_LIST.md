@@ -5,11 +5,8 @@
 * [duanwenhui](duanwenhuiIMAU.md)
 * [KahKee](KahKee.md)
 * [Mysticsaint](users/Mysticsaint.md)
-* [yaoyunfeng](yyf.md)
 * [sunxingyu](users/1004701224.md)
-* [Mysticsaint](zhoukunhao.md)
 * [yaoyunfeng](users/15648933053.md)
-* [sunxingyu](rock.md)
 * [沧海猎人](users/zhangqixun.md)
 * [Nick-yifan](users/Nick-yifan.md)
 * [ZZZXXXCCCWXY999](ZZZXXXCCCWXY999.md)
@@ -21,5 +18,5 @@
 * [GaoLihai](users/GAOSILIHAI.md)
 * [Hanyongshun](/Hanyongshun.md)
 * [xhhhhhhhhhh](xh.md)
-*[Andy](Andy.md)
+* [Andy](Andy.md)
 
