@@ -8,7 +8,7 @@
 * [yaoyunfeng](yyf.md)
 * [sunxingyu](users/1004701224.md)
 * [沧海猎人](users/zhangqixun.md)
-* [Nick-yifan](Nick-yifan.md)
+* [Nick-yifan](users/Nick-yifan.md)
 * [ZZZXXXCCCWXY999](ZZZXXXCCCWXY999.md)
 * [GaoLihai](lihai.md)
 * [RookieXu](xh1315099.md)
