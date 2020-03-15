@@ -7,5 +7,5 @@
 * [Mysticsaint](zhoukunhao.md)
 * [yaoyunfeng](yyf.md)
 * [sunxingyu](rock.md)
+* [沧海猎人](users/zhangqixun.md)
 * [Nick-yifan](Nick-yifan.md)
-
