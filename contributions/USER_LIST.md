@@ -6,3 +6,4 @@
 * [昵称1](/file1.md)
 * [昵称2](/file2.md)
 * [KahKee](/KahKee.md)
+哭笑不得表情包（/lin.md）
