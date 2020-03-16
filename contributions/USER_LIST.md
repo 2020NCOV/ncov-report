@@ -16,12 +16,9 @@
 * [Cody](users/Relyonyou.md)
 * [GaoLihai](users/GAOSILIHAI.md)
 * [Hanyongshun](/Hanyongshun.md)
-<<<<<<< HEAD
 * [xhhhhhhhhhh](xh.md)
 * [辰卯](users/5234asdfghjk.md)
-=======
 * [xhhhhhhhhhh](users/xhhhhhhhhhh.md)
 * [辰卯](5234asdfghjk.md)
->>>>>>> 第四次pr
 * [Andy](users/Andy-Lau-boy.md)
 
