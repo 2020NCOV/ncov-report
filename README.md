@@ -67,7 +67,6 @@ ___
 
 ## 小程序扫码体验
 
-<img src="http://ncov-sspku.mysspku.com/100000001.jpg" width="200px">
 
 ## 近期线上交流
 
