@@ -11,7 +11,6 @@
 * [Nick-yifan](users/Nick-yifan.md)
 * [ZZZXXXCCCWXY999](users/ZZZXXXCCCWXY999.md)
 * [GaoLihai](lihai.md)
-* [RookieXu](xh1315099.md)
 * [Cody](Cody.md)
 * [RookieXu](users/xh1315099.md)
 * [Cody](users/Relyonyou.md)
