@@ -17,6 +17,6 @@
 * [GaoLihai](users/GAOSILIHAI.md)
 * [Hanyongshun](/Hanyongshun.md)
 * [xhhhhhhhhhh](xh.md)
-* [辰卯](5234asdfghjk.md)
+* [辰卯](users/5234asdfghjk.md)
 * [Andy](users/Andy-Lau-boy.md)
 
