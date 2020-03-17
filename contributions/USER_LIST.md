@@ -25,5 +25,4 @@
 * [he-mixedSon](he-mixedSon.md)
 * [20172104249](users/alia.md)
 * [zqr](users/zhouqingrong.md)
-* [20172104249](alia.md)
 * [majie](majie.md)
