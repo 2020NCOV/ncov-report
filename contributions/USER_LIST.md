@@ -1,4 +1,4 @@
-﻿成功完成三次PR提交任务的同学清单
+成功完成三次PR提交任务的同学清单
 
 请参考以下格式在文件末尾追加内容
 
@@ -28,3 +28,4 @@
 * [majie](users/1320162752.md)
 * [虾米](users/xiami.md)
 * [star-gazers](users/star-gazers-name)
+* [pppku](users/pppku.md)
