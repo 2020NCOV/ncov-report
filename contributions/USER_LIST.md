@@ -32,5 +32,5 @@
 * [rain0908](users/rain0908.md)
 * [msq0313](users/msq0313.md)
 * [20172104257](users/YueHong.md)
-* [lin](users/lin.md)
+* [linaiziji](users/lin.md)
 
