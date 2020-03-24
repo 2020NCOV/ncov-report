@@ -1,4 +1,4 @@
-成功完成三次PR提交任务的同学清单
+﻿成功完成三次PR提交任务的同学清单
 
 请参考以下格式在文件末尾追加内容
 
@@ -32,4 +32,5 @@
 * [rain0908](users/rain0908.md)
 * [msq0313](users/msq0313.md)
 * [20172104257](users/YueHong.md)
+* [linaiziji](users/lin.md)
 
