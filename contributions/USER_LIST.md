@@ -33,5 +33,5 @@
 * [msq0313](users/msq0313.md)
 * [20172104257](users/YueHong.md)
 * [linaiziji](users/lin.md)
-* [LanePKU](users/LanePKU.md)
+* [nightfeather-wanningmoon](users/nightfeather-wanningmoon.md)
 
