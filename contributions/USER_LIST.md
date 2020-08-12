@@ -34,5 +34,5 @@
 * [20172104257](users/YueHong.md)
 * [linaiziji](users/lin.md)
 * [nightfeather-wanningmoon](users/nightfeather-wanningmoon.md)
-* [chenkai](chenkai02.md)
+* [chenkai02](/chenkai02.md)
 
