@@ -35,4 +35,9 @@
 * [linaiziji](users/lin.md)
 * [nightfeather-wanningmoon](users/nightfeather-wanningmoon.md)
 * [chenkai02](/chenkai02.md)
+<<<<<<< HEAD
 * [yuhaowen](users/yuhaowen.md)
+=======
+* [CornanZZ](/cornan.md)
+* [CJack812](users/CJack812.md)
+>>>>>>> 1952642e77c8aad611e65f53dff49522958e7194
