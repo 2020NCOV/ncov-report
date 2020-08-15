@@ -35,6 +35,11 @@
 * [linaiziji](users/lin.md)
 * [nightfeather-wanningmoon](users/nightfeather-wanningmoon.md)
 * [chenkai02](/chenkai02.md)
+<<<<<<< HEAD
+=======
+* [yuhaowen](users/Adawen.md)
+* [CornanZZ](/cornan.md)
+>>>>>>> 1919a3e... Ada's fourth try of pr
 * [CornanZZ](users/CornanZZ.md)
 * [CJack812](users/CJack812.md)
 * [yuhaowen](users/yuhaowen.md)
