@@ -48,5 +48,5 @@
 * [HWJ](users/hwj.md)
 * [ZQH](users/zhenqihang.md)
 * [Ada]
-* [Luson](users/lusonluoqian.md)
-* [Luson2](users/lusonluoqian.md)
+* [Luson](users/Lusonluoqian.md)
+* [Luson2](users/Lusonluoqian.md)
