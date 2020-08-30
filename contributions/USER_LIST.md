@@ -50,3 +50,6 @@
 * [Ada]
 * [Luson](users/Lusonluoqian.md)
 * [Luson2](users/Lusonluoqian.md)
+
+* [kinoko](/kinoko.md)
+
