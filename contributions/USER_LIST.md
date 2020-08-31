@@ -53,5 +53,5 @@
 * [kinoko](users/kinoko.md)
 * [kinoko](/kinoko.md)
 * [yangzhehua](/yzhshiki.md)
-* [zhou_xingxing](./zhou_xingxing.md)
+* [zhou-xingxing](users/zhou-xingxing.md)
 * [LeoJ](/LeoJ.md)
