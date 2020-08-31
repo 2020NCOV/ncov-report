@@ -55,3 +55,6 @@
 * [yangzhehua](/yzhshiki.md)
 * [zhou-xingxing](users/zhou-xingxing.md)
 * [LeoJ](/LeoJ.md)
+* [yangzhehua](users/yzhshiki.md)
+* [zhou_xingxing](./zhou_xingxing.md)
+* [LeoJ](users/LeoJ.md)
