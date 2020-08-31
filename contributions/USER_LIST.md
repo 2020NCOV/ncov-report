@@ -52,6 +52,6 @@
 * [Luson2](users/Lusonluoqian.md)
 * [kinoko](users/kinoko.md)
 * [kinoko](/kinoko.md)
-* [yangzhehua](/yzhshiki.md)
+* [yangzhehua](users/yzhshiki.md)
 * [zhou_xingxing](./zhou_xingxing.md)
 * [LeoJ](users/LeoJ.md)
