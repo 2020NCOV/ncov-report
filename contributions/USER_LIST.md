@@ -1,4 +1,4 @@
-﻿成功完成三次PR提交任务的同学清单
+成功完成三次PR提交任务的同学清单
 
 请参考以下格式在文件末尾追加内容
 
@@ -35,6 +35,7 @@
 * [linaiziji](users/lin.md)
 * [nightfeather-wanningmoon](users/nightfeather-wanningmoon.md)
 * [chenkai02](/chenkai02.md)
+* [baoan](/baoan.md)
 * [yuhaowen](users/Adawen.md)
 * [CornanZZ](/cornan.md)
 * [CornanZZ](users/CornanZZ.md)
@@ -45,3 +46,20 @@
 * [xielingfan](/xlf.md)
 * [ShrekPeng](users/ShrekPeng.md)
 * [HWJ](users/hwj.md)
+* [ZQH](users/zhenqihang.md)
+* [Ada]
+* [Luson](users/Lusonluoqian.md)
+* [Luson2](users/Lusonluoqian.md)
+* [kinoko](users/kinoko.md)
+* [kinoko](/kinoko.md)
+* [yangzhehua](/yzhshiki.md)
+* [zhou-xingxing](users/zhou-xingxing.md)
+* [LeoJ](/LeoJ.md)
+* [yangzhehua](users/yzhshiki.md)
+* [zhou_xingxing](./zhou_xingxing.md)
+* [LeoJ](users/LeoJ.md)
+* [wyx](/wyx.md)
+* [Philip](users/Philip-PKU.md)
+* [wyx](users/wangyx-max.md)
+* [EricChen](users/EricChen.md)
+- [VincentYu](/VincentYu.md)
