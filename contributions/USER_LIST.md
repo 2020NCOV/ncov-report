@@ -64,3 +64,6 @@
 * [EricChen](users/EricChen.md)
 - [VincentYu](/VincentYu.md)
 * [caocan](/caocan.md)
+* [VincentYu](/VincentYu.md)
+* [VanishingCake](/Felix.md)
+* [callum](users/callum.md)
