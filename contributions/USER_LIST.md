@@ -69,3 +69,4 @@
 * [VanishingCake](/Felix.md)
 * [callum](users/callum.md)
 * [liuyuhanMio](lyh.md)
+* [WeiRi](users/wr.md)
