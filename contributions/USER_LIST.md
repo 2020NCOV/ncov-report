@@ -70,7 +70,7 @@
 * [callum](users/callumyang.md)
 * [callum](users/callum.md)
 *[EllaChen](users/EllaChen.md)
-* [Junius8023](/Junius8023.md)
+* [Junius8023](users/Junius8023.md)
 * [liuyuhanMio](users/liuyuhanMio.md)
 * [liuyuhanMio](lyh.md)
 * [WeiRi](users/wr.md)
