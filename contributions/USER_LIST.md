@@ -69,7 +69,7 @@
 * [VanishingCake](/Felix.md)
 * [callum](users/callumyang.md)
 * [callum](users/callum.md)
-*[EllaChen](users/EllaChen.md)
+* [EllaChen](users/EllaChen.md)
 * [Junius8023](users/Junius8023.md)
 * [liuyuhanMio](users/liuyuhanMio.md)
 * [liuyuhanMio](lyh.md)
@@ -79,3 +79,4 @@
 * [haiyun549](/liuhaiyun.md)
 * [lfylfy027](/lfy.md)
 * [haiyun549](users/haiyun549.md)
+* [huqi](users/huqi.md)
